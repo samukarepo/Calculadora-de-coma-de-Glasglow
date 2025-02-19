@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Define a codificação de caracteres como UTF-8 -->
+    <meta charset="UTF-8">
+    <!-- Define a meta tag de viewport para responsividade -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Define o título da página -->
+    <title>Calculadora de Escala de Coma de Glasgow</title>
+    <!-- Link para o arquivo CSS externo -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body id="body">
+    <div class="container">
+        <!-- Título da calculadora -->
+        <h1>Calculadora de Escala de Coma de Glasgow</h1>
+        <!-- Descrição da calculadora -->
+        <p class="description">
+            Esta calculadora interativa permite avaliar a Escala de Coma de Glasgow (GCS) de uma vítima com base nas
+            respostas ocular, verbal e motora. A pontuação total indica a gravidade da condição da vítima e a cor de
+            fundo reflete esse estado.
+        </p>
+        <!-- Formulário para entradas do usuário -->
+        <form id="glasgowForm">
+            <!-- Label e menu suspenso para a resposta ocular -->
+            <label for="ocular">Resposta Ocular:</label>
+            <select id="ocular" required>
+                <option value="4">Espontânea</option>
+                <option value="3">À voz</option>
+                <option value="2">À dor</option>
+                <option value="1">Nenhuma</option>
+            </select>
+
+            <!-- Label e menu suspenso para a resposta verbal -->
+            <label for="verbal">Resposta Verbal:</label>
+            <select id="verbal" required>
+                <option value="5">Orientado</option>
+                <option value="4">Confuso</option>
+                <option value="3">Palavras inapropriadas</option>
+                <option value="2">Sons incompreensíveis</option>
+                <option value="1">Nenhuma</option>
+            </select>
+
+            <!-- Label e menu suspenso para a resposta motora -->
+            <label for="motora">Resposta Motora:</label>
+            <select id="motora" required>
+                <option value="6">Obedece comandos</option>
+                <option value="5">Localiza dor</option>
+                <option value="4">Flexão normal</option>
+                <option value="3">Flexão anormal</option>
+                <option value="2">Extensão</option>
+                <option value="1">Nenhuma</option>
+            </select>
+
+            <!-- Botão para calcular a pontuação -->
+            <button type="button" onclick="calcularGlasgow()">Calcular</button>
+        </form>
+        <!-- Parágrafo para exibir o resultado -->
+        <p id="resultado"></p>
+    </div>
+    <!-- Link para o arquivo JavaScript externo -->
+    <script src="script.js"></script>
+</body>
+
+</html>
