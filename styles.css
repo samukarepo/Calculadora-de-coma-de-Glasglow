@@ -19,7 +19,7 @@ body {
     border-radius: 15px; /* Bordas arredondadas */
     box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1); /* Sombra ao redor do contêiner */
     width: 90%; /* Largura relativa */
-    max-width: 400px; /* Largura máxima */
+    max-width: 500px; /* Largura máxima ajustada */
     text-align: center; /* Centraliza o texto */
 }
 
@@ -27,7 +27,7 @@ body {
 h1 {
     margin-bottom: 20px; /* Espaçamento inferior */
     color: #333; /* Cor do texto */
-    font-size: 1.5rem; /* Tamanho da fonte responsivo */
+    font-size: 2rem; /* Tamanho ajustado para destaque */
 }
 
 /* Estilos para o formulário */
@@ -45,7 +45,7 @@ label {
 
 /* Estilos para os menus suspensos e botão */
 select, button {
-    padding: 10px; /* Espaçamento interno */
+    padding: 12px; /* Espaçamento interno ajustado */
     margin-bottom: 15px; /* Espaçamento inferior */
     border: 1px solid #ccc; /* Borda */
     border-radius: 5px; /* Bordas arredondadas */
@@ -84,19 +84,19 @@ button:hover {
 @media (max-width: 600px) {
     .container {
         width: 100%; /* Largura completa */
-        padding: 15px; /* Reduz o espaçamento interno */
+        padding: 10px; /* Espaçamento reduzido para telas pequenas */
     }
 
     h1 {
-        font-size: 1.2rem; /* Reduz o tamanho da fonte do título */
+        font-size: 1.5rem; /* Reduz o tamanho da fonte para telas menores */
     }
 
     select, button {
         font-size: 0.9rem; /* Reduz o tamanho da fonte dos menus suspensos e botão */
-        padding: 8px; /* Reduz o espaçamento interno */
+        padding: 10px; /* Ajusta o espaçamento interno */
     }
 
     #resultado {
-        font-size: 1rem; /* Reduz o tamanho da fonte do resultado */
+        font-size: 1rem; /* Tamanho ajustado para telas menores */
     }
 }
