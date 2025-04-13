@@ -18,7 +18,7 @@ body {
     padding: 20px; /* Espaçamento interno */
     border-radius: 15px; /* Bordas arredondadas */
     box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1); /* Sombra ao redor do contêiner */
-    width: 90%; /* Largura relativa */
+    width: 100%; /* Largura relativa */
     max-width: 500px; /* Largura máxima ajustada */
     text-align: center; /* Centraliza o texto */
 }
