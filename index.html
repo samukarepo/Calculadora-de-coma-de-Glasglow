@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -14,8 +14,9 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            padding: 20px;
             margin: 0;
+            min-height: 100vh;
             text-align: center;
         }
 
@@ -25,7 +26,7 @@
             border-radius: 15px;
             box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
             width: 90%;
-            max-width: 600px;
+            max-width: 900px;
             text-align: center;
         }
 
@@ -38,6 +39,7 @@
             font-size: 1rem;
             color: #555;
             margin-bottom: 20px;
+            text-align: justify;
         }
 
         table {
@@ -64,6 +66,7 @@
         form {
             display: flex;
             flex-direction: column;
+            align-items: center;
         }
 
         label {
@@ -118,66 +121,104 @@
     <div class="container">
         <h1>Calculadora de Escala de Coma de Glasgow</h1>
         <p>
-            A Escala de Coma de Glasgow (GCS) é uma ferramenta usada para avaliar o nível de consciência de uma pessoa 
-            após um trauma craniano ou outra lesão cerebral. Ela considera três aspectos principais: resposta ocular, 
-            verbal e motora. A pontuação varia de 3 (coma profundo) a 15 (normal), e quanto maior a pontuação, melhor o 
-            estado de consciência.
+            A Escala de Coma de Glasgow (GCS) é uma ferramenta utilizada para avaliar o nível de consciência de pacientes, especialmente após traumas cranianos. Consiste em avaliar as respostas ocular, verbal e motora do indivíduo, com pontuação total variando de 3 (coma profundo) a 15 (condição normal). Quanto maior a pontuação, melhor o estado de consciência.
         </p>
-        <h2>Tabela de Pontuações (Modelo)</h2>
+        <h2>Tabela: Resposta Ocular</h2>
         <table>
             <thead>
                 <tr>
-                    <th>Categoria</th>
-                    <th>Descrição (Adulto)</th>
-                    <th>Descrição (Pediátrico)</th>
+                    <th>Descrição</th>
                     <th>Pontuação</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>Resposta Motora</td>
-                    <td>A ordens</td>
-                    <td>Movimentos espontâneos</td>
-                    <td>6</td>
-                </tr>
-                <tr>
-                    <td>Resposta Motora</td>
-                    <td>Localizadora</td>
-                    <td>Retira ao toque</td>
-                    <td>5</td>
-                </tr>
-                <tr>
-                    <td>Resposta Motora</td>
-                    <td>Flexão normal</td>
-                    <td>Retira à dor</td>
+                    <td>Espontânea</td>
                     <td>4</td>
                 </tr>
                 <tr>
-                    <td>Resposta Motora</td>
-                    <td>Flexão anormal</td>
-                    <td>Postura decorticação</td>
+                    <td>Ao som</td>
                     <td>3</td>
                 </tr>
                 <tr>
-                    <td>Resposta Motora</td>
-                    <td>Extensão</td>
-                    <td>Postura de descerebração</td>
+                    <td>À pressão</td>
                     <td>2</td>
                 </tr>
                 <tr>
-                    <td>Resposta Motora</td>
-                    <td>Ausente</td>
                     <td>Ausente</td>
                     <td>1</td>
                 </tr>
+            </tbody>
+        </table>
+
+        <h2>Tabela: Resposta Verbal</h2>
+        <table>
+            <thead>
                 <tr>
-                    <td>Resposta Motora</td>
-                    <td>Não testável</td>
-                    <td>Não testável</td>
-                    <td>NT</td>
+                    <th>Descrição</th>
+                    <th>Pontuação</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Orientado</td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td>Confuso</td>
+                    <td>4</td>
+                </tr>
+                <tr>
+                    <td>Palavras inapropriadas</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>Sons incompreensíveis</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>Ausente</td>
+                    <td>1</td>
                 </tr>
             </tbody>
         </table>
+
+        <h2>Tabela: Resposta Motora</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Descrição</th>
+                    <th>Pontuação</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Obedece comandos</td>
+                    <td>6</td>
+                </tr>
+                <tr>
+                    <td>Localiza dor</td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td>Flexão normal</td>
+                    <td>4</td>
+                </tr>
+                <tr>
+                    <td>Flexão anormal</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>Extensão</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>Ausente</td>
+                    <td>1</td>
+                </tr>
+            </tbody>
+        </table>
+
         <form id="glasgowForm">
             <label for="ocular">Resposta Ocular:</label>
             <select id="ocular" required>
@@ -196,13 +237,12 @@
             </select>
             <label for="motora">Resposta Motora:</label>
             <select id="motora" required>
-                <option value="6">A ordens</option>
-                <option value="5">Localizadora</option>
+                <option value="6">Obedece comandos</option>
+                <option value="5">Localiza dor</option>
                 <option value="4">Flexão normal</option>
                 <option value="3">Flexão anormal</option>
                 <option value="2">Extensão</option>
                 <option value="1">Ausente</option>
-                <option value="NT">Não testável</option>
             </select>
             <button type="button" onclick="calcularGlasgow()">Calcular</button>
         </form>
@@ -212,17 +252,16 @@
         function calcularGlasgow() {
             const ocular = parseInt(document.getElementById('ocular').value);
             const verbal = parseInt(document.getElementById('verbal').value);
-            const motora = document.getElementById('motora').value;
+            const motora = parseInt(document.getElementById('motora').value);
 
-            if (isNaN(ocular) || isNaN(verbal) || motora === "NT") {
-                alert('Por favor, selecione uma opção válida para todas as respostas.');
+            if (isNaN(ocular) || isNaN(verbal) || isNaN(motora)) {
+                alert('Por favor, selecione uma opção para todas as respostas.');
                 return;
             }
 
-            const motoraValue = motora === "NT" ? 0 : parseInt(motora);
-            const total = ocular + verbal + motoraValue;
-
+            const total = ocular + verbal + motora;
             let estado;
+
             if (total >= 13) {
                 estado = 'Condição Leve';
             } else if (total >= 9) {
