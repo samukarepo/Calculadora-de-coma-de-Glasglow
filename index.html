@@ -76,3 +76,189 @@
 
         button {
             background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #resultado {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                width: 100%;
+                padding: 10px;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            table {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Calculadora de Escala de Coma de Glasgow</h1>
+        <p>
+            A Escala de Coma de Glasgow (GCS) é uma ferramenta usada para avaliar o nível de consciência de uma pessoa 
+            após um trauma craniano ou outra lesão cerebral. Ela considera três aspectos principais: resposta ocular, 
+            verbal e motora. A pontuação varia de 3 (coma profundo) a 15 (normal), e quanto maior a pontuação, melhor o 
+            estado de consciência.
+        </p>
+        <h2>Tabela de Pontuações</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Categoria</th>
+                    <th>Descrição</th>
+                    <th>Pontuação</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Resposta Ocular</td>
+                    <td>Espontânea</td>
+                    <td>4</td>
+                </tr>
+                <tr>
+                    <td>Resposta Ocular</td>
+                    <td>À voz</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>Resposta Ocular</td>
+                    <td>À dor</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>Resposta Ocular</td>
+                    <td>Nenhuma</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>Resposta Verbal</td>
+                    <td>Orientado</td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td>Resposta Verbal</td>
+                    <td>Confuso</td>
+                    <td>4</td>
+                </tr>
+                <tr>
+                    <td>Resposta Verbal</td>
+                    <td>Palavras inapropriadas</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>Resposta Verbal</td>
+                    <td>Sons incompreensíveis</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>Resposta Verbal</td>
+                    <td>Nenhuma</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>Resposta Motora</td>
+                    <td>Obedece comandos</td>
+                    <td>6</td>
+                </tr>
+                <tr>
+                    <td>Resposta Motora</td>
+                    <td>Localiza dor</td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td>Resposta Motora</td>
+                    <td>Flexão normal</td>
+                    <td>4</td>
+                </tr>
+                <tr>
+                    <td>Resposta Motora</td>
+                    <td>Flexão anormal</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>Resposta Motora</td>
+                    <td>Extensão</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>Resposta Motora</td>
+                    <td>Nenhuma</td>
+                    <td>1</td>
+                </tr>
+            </tbody>
+        </table>
+        <form id="glasgowForm">
+            <label for="ocular">Resposta Ocular:</label>
+            <select id="ocular" required>
+                <option value="4">Espontânea</option>
+                <option value="3">À voz</option>
+                <option value="2">À dor</option>
+                <option value="1">Nenhuma</option>
+            </select>
+            <label for="verbal">Resposta Verbal:</label>
+            <select id="verbal" required>
+                <option value="5">Orientado</option>
+                <option value="4">Confuso</option>
+                <option value="3">Palavras inapropriadas</option>
+                <option value="2">Sons incompreensíveis</option>
+                <option value="1">Nenhuma</option>
+            </select>
+            <label for="motora">Resposta Motora:</label>
+            <select id="motora" required>
+                <option value="6">Obedece comandos</option>
+                <option value="5">Localiza dor</option>
+                <option value="4">Flexão normal</option>
+                <option value="3">Flexão anormal</option>
+                <option value="2">Extensão</option>
+                <option value="1">Nenhuma</option>
+            </select>
+            <button type="button" onclick="calcularGlasgow()">Calcular</button>
+        </form>
+        <p id="resultado"></p>
+    </div>
+    <script>
+        function calcularGlasgow() {
+            const ocular = parseInt(document.getElementById('ocular').value);
+            const verbal = parseInt(document.getElementById('verbal').value);
+            const motora = parseInt(document.getElementById('motora').value);
+
+            if (isNaN(ocular) || isNaN(verbal) || isNaN(motora)) {
+                alert('Por favor, selecione uma opção para todas as respostas.');
+                return;
+            }
+
+            const total = ocular + verbal + motora;
+            let estado;
+
+            if (total >= 13) {
+                estado = 'Condição Leve';
+            } else if (total >= 9) {
+                estado = 'Condição Moderada';
+            } else {
+                estado = 'Condição Grave';
+            }
+
+            document.getElementById('resultado').innerText = `Pontuação Total: ${total}\nEstado: ${estado}`;
+        }
+    </script>
+</body>
+
+</html>
